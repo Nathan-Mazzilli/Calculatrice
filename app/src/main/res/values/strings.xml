@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">calculatriceMazzNat</string>
+    <string name="BTN_Reset">C</string>
+    <string name="BTN_Fois">*</string>
+    <string name="BTN_Moins">-</string>
+    <string name="BTN_Diviser">/</string>
+    <string name="BTN7">7</string>
+    <string name="BTN8">8</string>
+    <string name="BTN9">9</string>
+    <string name="BTN_Plus">+</string>
+    <string name="BTN4">4</string>
+    <string name="BTN5">5</string>
+    <string name="BTN6">6</string>
+    <string name="BTN1">1</string>
+    <string name="BTN2">2</string>
+    <string name="BTN3">3</string>
+    <string name="BTN_Pourcent">%</string>
+    <string name="BTN0">0</string>
+    <string name="BTN_Point">.</string>
+    <string name="BTN_Egal">=</string>
+    <string name="Zoro_IMg">Image de Zoro</string>
+    <string name="BTN_Result">0</string>
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        style="@style/Main_IMG_View"
+        app:srcCompat="@drawable/zoro"
+        android:contentDescription="@string/Zoro_IMg" />
+    <LinearLayout
+        android:layout_marginTop="@dimen/main_TextView_Margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/main_tv_calc"
+            style="@style/Main_TextView"
+            android:text="@string/BTN_Result" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp"
+        android:background="@drawable/calc_bg">
+        <GridLayout style="@style/Main_GridLayout"
+            android:layout_marginTop="@dimen/main_Margin_Layout">
+            <ImageButton
+                android:id="@+id/BT_Reset"
+                style="@style/Main_CalcButton"
+                android:scaleType="centerCrop"
+                android:src="@drawable/zorot"
+                android:text="@string/BTN_Reset" />
+            <Button
+                android:id="@+id/BT_Diviser"
+                android:text="@string/BTN_Diviser"
+                style="@style/Main_OperationButton" />
+            <Button
+                android:id="@+id/BT_Fois"
+                android:text="@string/BTN_Fois"
+                style="@style/Main_OperationButton" />
+
+        </GridLayout>
+        <GridLayout
+            style="@style/Main_GridLayout">
+            <Button
+                android:id="@+id/BT_7"
+                android:text="@string/BTN7"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_8"
+                android:text="@string/BTN8"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_9"
+                android:text="@string/BTN9"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_Plus"
+                android:text="@string/BTN_Plus"
+                style="@style/Main_OperationButton" />
+        </GridLayout>
+        <GridLayout
+            style="@style/Main_GridLayout">
+            <Button
+                android:id="@+id/BT_4"
+                android:text="@string/BTN4"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_5"
+                android:text="@string/BTN5"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_6"
+                android:text="@string/BTN6"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_Moins"
+                android:text="@string/BTN_Moins"
+                style="@style/Main_OperationButton" />
+        </GridLayout>
+        <GridLayout
+            style="@style/Main_GridLayout">
+            <Button
+                android:id="@+id/BT_1"
+                android:text="@string/BTN1"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_2"
+                android:text="@string/BTN2"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_3"
+                android:text="@string/BTN3"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_Pourcent"
+                android:text="@string/BTN_Pourcent"
+                style="@style/Main_OperationButton" />
+        </GridLayout>
+        <GridLayout
+            style="@style/Main_GridLayout">
+            <Button
+                android:id="@+id/BT_0"
+                android:text="@string/BTN0"
+                android:layout_width="@dimen/main_Large_Button"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_Point"
+                android:text="@string/BTN_Point"
+                style="@style/Main_CalcButton" />
+            <Button
+                android:id="@+id/BT_Egal"
+                android:text="@string/BTN_Egal"
+                style="@style/Main_CalcButton" />
+        </GridLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activité principal -->
+    <dimen name="main_Large_Button">160dp</dimen>
+    <dimen name="main_Margin_Layout">15dp</dimen>
+    <dimen name="main_TextView_Margin">-120dp</dimen>
+</resources>

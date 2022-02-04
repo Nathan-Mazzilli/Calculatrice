@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Main_TextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:layout_marginEnd">30dp</item>
+        <item name="android:layout_marginTop">60dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Main_CalcButton">
+        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_width">75dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@drawable/calc_button</item>
+        <item name="android:onClick">addNumber</item>
+    </style>
+    <style name="Main_OperationButton">
+        <item name="android:layout_height">75dp</item>
+        <item name="android:layout_width">75dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:background">@drawable/calc_button</item>
+        <item name="android:onClick">setOperator</item>
+    </style>
+    <style name="Main_GridLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+    <style name="Main_IMG_View">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">180dp</item>
+        <item name="android:layout_marginTop">-20dp</item>
+        <item name="android:layout_marginBottom">-10dp</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+</resources>
