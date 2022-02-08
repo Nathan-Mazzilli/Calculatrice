@@ -1,17 +1,18 @@
 package com.mazznat.calc;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.icu.text.IDNA;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     public enum Ops {
         PLUS("+"),
         MOINS("-"),
@@ -20,16 +21,20 @@ public class MainActivity extends AppCompatActivity {
         DOT("."),
         POURCENT("%");
 
-        private String name = "";
-        Ops(String name){this.name = name;}
-        public String toString(){return name;}
+        private final String name;
+        Ops(String name) {
+            this.name = name;
+        }
     }
+
 
     private TextView screen;
     private float op1=0;
     private float op2=0;
     private Ops operator=null;
     private boolean isOp1=true;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,17 @@ public class MainActivity extends AppCompatActivity {
         btnEgal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                BT_Point.setEnabled(true);
+                String s = screen.getText().toString();
+                String[] valueString = s.split("[+/%\\*]");
+                if (valueString[1] == null) { screen.setText("Error"); }
+                if (valueString[0].equals(".") || valueString[1].equals(".")) { screen.setText("Error"); } else {
+                    op1 = Float.parseFloat(valueString[0]);
+                    op2 = Float.parseFloat(valueString[1]);
+                    Log.v("Nombre1", String.valueOf(op1));
+                    Log.v("Nombre2", String.valueOf(op2));
+                    compute();
+                    BT_Point.setEnabled(true);
+                }
             }
         });
 
@@ -73,15 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void updateDisplay() {
-        Button BT_Point = findViewById(R.id.BT_Point);
-        float v=op1;
-        if(!isOp1) {
-            v=op2;
-        }
-
-        screen.setText(String.valueOf(v));
-    }
 
     public void compute() {
         if(isOp1) {
@@ -99,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             }
             op2 = 0;
             isOp1 = true;
-            updateDisplay();
+            screen.setText(String.valueOf(op1));
         }
     }
 
@@ -108,17 +113,18 @@ public class MainActivity extends AppCompatActivity {
         op2 = 0;
         operator = null;
         isOp1 = true;
-        updateDisplay();
+        screen.setText("");
     }
 
     public void setOperator(View v) {
+        Button BT_Point = findViewById(R.id.BT_Point);
         switch (v.getId()) {
-            case R.id.BT_Plus: operator=Ops.PLUS; screen.append("+");  break;
-            case R.id.BT_Moins: operator=Ops.MOINS; screen.append("-");  break;
-            case R.id.BT_Fois: operator=Ops.FOIS; screen.append("*");   break;
-            case R.id.BT_Diviser: operator=Ops.DIV; screen.append("/");    break;
-            case R.id.BT_Point: operator= Ops.DOT; screen.append(".");  break;
-            case R.id.BT_Pourcent: operator= Ops.POURCENT;  break;
+            case R.id.BT_Plus: operator=Ops.PLUS; screen.append("+");BT_Point.setEnabled(true); break;
+            case R.id.BT_Moins: operator=Ops.MOINS; screen.append("-");BT_Point.setEnabled(true);  break;
+            case R.id.BT_Fois: operator=Ops.FOIS; screen.append("*"); BT_Point.setEnabled(true);  break;
+            case R.id.BT_Diviser: operator=Ops.DIV; screen.append("/");BT_Point.setEnabled(true);    break;
+            case R.id.BT_Point: operator= Ops.DOT; screen.append(".");BT_Point.setEnabled(true);  break;
+            case R.id.BT_Pourcent: operator= Ops.POURCENT;BT_Point.setEnabled(true);  break;
             default : return;
         }
         isOp1=false;
@@ -128,13 +134,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             int val = Integer.parseInt(((Button)v).getText().toString());
 
-            if (isOp1) {
-                op1 = op1 * 10 + val;
-                updateDisplay();
-            } else {
-                op2 = op2 * 10 + val;
-                updateDisplay();
-            }
+            screen.append(String.valueOf(val));
         }catch (NumberFormatException | ClassCastException e) {
         }
     }
