@@ -46,12 +46,12 @@ public class MainActivity extends AppCompatActivity {
         btnEgal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String s = screen.getText().toString();
-                String[] valueString = s.split("[+/%\\*]");
-                if (valueString[1] == null) { screen.setText("Error"); }
-                if (valueString[0].equals(".") || valueString[1].equals(".")) { screen.setText("Error"); } else {
-                    op1 = Float.parseFloat(valueString[0]);
-                    op2 = Float.parseFloat(valueString[1]);
+                String texteCalc = screen.getText().toString();
+                String[] texte = texteCalc.split("[+/%\\-*]");
+                if (texte[1] == null) { screen.setText("Erreur"); }
+                if (texte[0].equals(".") || texte[1].equals(".")) { screen.setText("Erreur"); } else {
+                    op1 = Float.parseFloat(texte[0]);
+                    op2 = Float.parseFloat(texte[1]);
                     Log.v("Nombre1", String.valueOf(op1));
                     Log.v("Nombre2", String.valueOf(op2));
                     compute();
